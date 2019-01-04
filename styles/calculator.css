@@ -1,0 +1,53 @@
+
+.wrapper {
+    width: 480px;
+    height: 650px;
+}
+
+
+.header {
+    width: 480px;
+    height: 150px;
+    background-color: #4B4B4B;
+}
+
+#result {
+    color: white;
+    font-size: 130px;
+    float: right;
+    padding-right: 15px;
+}
+
+.row {
+    width: 480px;
+    height: 100px;
+}
+
+.leftSideBtn {
+    width: 116px;
+    height: 96px;
+    background-color: #DFDFDF;
+    color: black;
+    font-size: 50px;
+    border: 2px solid black;
+    display: inline-block;
+    text-align: center;
+    line-height: 90px;
+    float: left;
+}
+
+.rightSideBtn {
+    width: 116px;
+    height: 96px;
+    background-color: #F69133;
+    font-size: 50px;
+    color: white;
+    border: 2px solid black;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 90px;
+    float: right;
+}
+
+
