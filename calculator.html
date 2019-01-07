@@ -9,6 +9,7 @@
 
     <link href="styles\calculator.css" rel="stylesheet" type="text/css">
 
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
     <script src="scripts\calculator.js"></script>
 
 </head>
@@ -18,14 +19,41 @@
     <div class="wrapper">
         
         <div class="header">
-            <span id="result">0</span>
+            <span id="result" class="cal-result">0</span>
         </div>
         
         <div class="row">
-            <span id="ACBtn" class="leftSideBtn">AC</span>
-            <span id="plusAndMinusBtn" class="leftSideBtn">+/-</span>
-            <span id="percentBtn" class="leftSideBtn">％</span>
-            <span id="divideBtn" class="rightSideBtn">÷</span>
+            <span id="ACBtn" class="left-btn">AC</span>
+            <span id="plusOrMinusBtn" class="left-btn">+/-</span>
+            <span id="percentBtn" class="left-btn">%</span>
+            <span id="divideBtn" class="right-btn">÷</span>
+        </div>
+        
+        <div class="row">
+            <span id="sevenBtn" class="left-btn">7</span>
+            <span id="eightBtn" class="left-btn">8</span>
+            <span id="nineBtn" class="left-btn">9</span>
+            <span id="multiplyBtn" class="right-btn">X</span>
+        </div>
+
+        <div class="row">
+            <span id="fourBtn" class="left-btn">4</span>
+            <span id="fiveBtn" class="left-btn">5</span>
+            <span id="sixBtn" class="left-btn">6</span>
+            <span id="minusBtn" class="right-btn">－</span>
+        </div>
+
+        <div class="row">
+            <span id="oneBtn" class="left-btn">1</span>
+            <span id="twoBtn" class="left-btn">2</span>
+            <span id="threeBtn" class="left-btn">3</span>
+            <span id="plusBtn" class="right-btn">＋</span>
+        </div>
+
+        <div class="row">
+            <span id="zeroBtn" class="zero-btn">0</span>
+            <span id="dotBtn" class="left-btn">.</span>
+            <span id="equalBtn" class="right-btn">＝</span>
         </div>
 
     </div>

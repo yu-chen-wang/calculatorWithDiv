@@ -11,11 +11,12 @@
     background-color: #4B4B4B;
 }
 
-#result {
+.cal-result {
     color: white;
-    font-size: 130px;
+    font-size: 90px;
     float: right;
-    padding-right: 15px;
+    padding-right: 20px;
+    line-height: 150px;
 }
 
 .row {
@@ -23,7 +24,7 @@
     height: 100px;
 }
 
-.leftSideBtn {
+.left-btn {
     width: 116px;
     height: 96px;
     background-color: #DFDFDF;
@@ -36,7 +37,7 @@
     float: left;
 }
 
-.rightSideBtn {
+.right-btn {
     width: 116px;
     height: 96px;
     background-color: #F69133;
@@ -48,6 +49,20 @@
     vertical-align: middle;
     line-height: 90px;
     float: right;
+}
+
+.zero-btn {
+    width: 192px;
+    height: 96px;
+    padding-left: 44px;
+    background-color: #DFDFDF;
+    color: black;
+    font-size: 50px;
+    border: 2px solid black;
+    display: inline-block;
+    text-align: left;
+    line-height: 90px;
+    float: left;
 }
 
 
