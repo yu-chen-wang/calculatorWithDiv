@@ -1,9 +1,8 @@
 $(document).ready(function () {
 
-
-    let result = 0;
-    let counter = 0;
-    let action = '';
+    let preNum = '';
+    let currentNum = '';
+    let operation = '';
 
     $('.row span').mousedown(function () {
         $(this).css('opacity', '0.5');
@@ -11,109 +10,85 @@ $(document).ready(function () {
 
     $('.row span').click(function () {
         $(this).css('opacity', '1');
+
+        let btnPressed = $(this).html();
+
+        if (btnPressed === 'AC') {
+            currentNum = '0';
+            operation = '';
+        }
+        else if (btnPressed === '+/-') {
+            currentNum *= -1;
+        }
+        else if (btnPressed === '%') {
+            currentNum = currentNum / 100;
+        }
+        else if (btnPressed === '.') {
+            currentNum += '.';
+        }
+        else if (isNumber(btnPressed)) {
+            if (currentNum === '0') {
+                currentNum = btnPressed;
+            }
+            else {
+                currentNum += btnPressed;
+            }
+        }
+        else if (isOperator(btnPressed)) {
+            preNum = currentNum;
+            currentNum = '';
+            operation = btnPressed;
+        }
+        else if (btnPressed === '＝') {
+            if (operation != null) {
+                currentNum = operate(preNum, currentNum, operation)
+                operation = null;
+            }
+        }
+
+        updateResult(currentNum);
+
     });
 
 
-    $('#ACBtn').click(function () {
-        counter = 0;
-        result = 0;
-        $("#result").text(result);
-    });
-
-    $('#plusOrMinusBtn').click(function () {
-        let isPostive = counter == Math.abs(counter);
-
-        if (isPostive) {
-            counter = -counter;
-        }
-        else {
-            counter = Math.abs(counter);
-        }
-
-        $('#result').text(counter);
-    });
+    function isNumber(value) {
+        return !isNaN(value);
+    }
 
 
-    $('#oneBtn').click(function () {
-        counter = counter * 10 + 1;
-        $('#result').text(counter);
-    })
-
-    $('#twoBtn').click(function () {
-        counter = counter * 10 + 2;
-        $('#result').text(counter);
-    })
-
-    $('#threeBtn').click(function () {
-        counter = counter * 10 + 3;
-        $('#result').text(counter);
-    })
-
-    $('#fourBtn').click(function () {
-        counter = counter * 10 + 4;
-        $('#result').text(counter);
-    })
-
-    $('#fiveBtn').click(function () {
-        counter = counter * 10 + 5;
-        $('#result').text(counter);
-    })
-
-    $('#sixBtn').click(function () {
-        counter = counter * 10 + 6;
-        $('#result').text(counter);
-    })
-
-    $('#sevenBtn').click(function () {
-        counter = counter * 10 + 7;
-        $('#result').text(counter);
-    })
-
-    $('#eightBtn').click(function () {
-        counter = counter * 10 + 8;
-        $('#result').text(counter);
-    })
-
-    $('#nineBtn').click(function () {
-        counter = counter * 10 + 9;
-        $('#result').text(counter);
-    })
-
-    $('#zeroBtn').click(function () {
-        counter = counter * 10 + 0;
-        $('#result').text(counter);
-    })
-
-    $('#plusBtn').click(function () {
-        if (action) {
-            cal(action);
-            action
-        }
-        else {
-
-        }
-
-    })
+    function isOperator(value) {
+        return value === '÷' || value === 'X' || value === '＋' || value === '－';
+    }
 
 
-    function cal(action) {
-        switch (action) {
-            case 'plus':
+    function operate(preNum, currentNum, operation) {
+        let result = 0;
+        preNum = parseFloat(preNum);
+        currentNum = parseFloat(currentNum);
 
+        switch (operation) {
+            case '＋':
+                result = preNum + currentNum;
                 break;
-            case 'minus':
-
+            case '－':
+                result = preNum - currentNum;
                 break;
-            case 'mutiply':
-
+            case 'X':
+                result = preNum * currentNum;
                 break;
-            case 'divide':
-
+            case '÷':
+                result = preNum / currentNum;
                 break;
             default:
                 break;
         }
         return result;
+    }
+
+    function updateResult(value) {
+        let result = value.toString();
+        result = result.substring(0, 10);
+        $('#result').text(result);
     }
 
 
